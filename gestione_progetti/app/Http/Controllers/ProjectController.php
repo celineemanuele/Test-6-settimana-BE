@@ -18,7 +18,6 @@ class ProjectController extends Controller
         //return Project::get();
         $projects = Project::with('activities')
                         ->where('user_id', '=', Auth::user()->id)
-                        //->paginate(5);
                         ->get();
         //return $projects;
         return view('projects', ['projects' => $projects]);
@@ -59,7 +58,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('edit_project', ['project' => $project]);
     }
 
     /**
@@ -67,7 +66,13 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $project['name'] = $request->name;
+        $project['description'] = $request->description;
+        $project['type'] = $request->type;
+        $project['updated_at'] = Carbon::now();
+
+        $project->update();
+        return redirect('/projects');
     }
 
     /**

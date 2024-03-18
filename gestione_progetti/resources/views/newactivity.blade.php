@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-select" name="priority">
-                            <option selected> Selected Project Type </option>
+                            <option selected> Selected Project Priority </option>
                             <option value="Very Low">Very Low</option>
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
@@ -34,15 +34,15 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <input type="date" name="start_data" class="form-control">
+                        <input type="date"  class="form-control" name="start_date">
                     </div>
 
                     <div class="mb-3">
-                        <input type="date" name="end_data" class="form-control">
-                        <input type="hidden" name="project_id" value="{{$project->id}}">
+                        <input type="date"  class="form-control" name="end_date">
+                        <input type="hidden" name="project_id" value="{{$project_id}}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Add project</button>
+                    <button type="submit" class="btn btn-primary text-dark">Add Activity</button>
                 </form>
                 </div>
             </div>

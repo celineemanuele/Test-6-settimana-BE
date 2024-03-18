@@ -36,7 +36,7 @@ class ActivityController extends Controller
         $data['created_at'] = Carbon::now();
 
         Activity::create($data);
-        return redirect()->back();
+        return redirect('/projects/'.$request->project_id);
     }
 
     /**
@@ -52,7 +52,7 @@ class ActivityController extends Controller
      */
     public function edit(Activity $activity)
     {
-        //
+        return view('edit_activity', ['activity' => $activity]);
     }
 
     /**
@@ -60,7 +60,15 @@ class ActivityController extends Controller
      */
     public function update(UpdateActivityRequest $request, Activity $activity)
     {
-        //
+        $activity['title'] = $request->title;
+        $activity['description'] = $request->description;
+        $activity['priority'] = $request->priority;
+        $activity['start_date'] = $request->start_date;
+        $activity['end_date'] = $request->end_date;
+        $activity['updated_at'] = Carbon::now();
+
+        $activity->update();
+        return redirect('/projects/'.$request->project_id);
     }
 
     /**

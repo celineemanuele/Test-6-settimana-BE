@@ -21,7 +21,7 @@
                             <p class="card-text"><strong>Created: </strong>{{$project->created_at}}</p>
                         </div>
                         <div class="card-body my-3">
-                        <a  type="button" href="/activities/create?id={{$project->id}}" class="btn btn-dark text-dark">Add Activity</a>
+                        <a  type="button" href="/activities/create?id={{$project->id}}" class="btn btn-primary text-dark">Add Activity</a>
                         </div>
                         <div class="card-body my-3">
                             <h2 class="card-title">{{ __('Activities') }}</h2>
@@ -34,6 +34,7 @@
                                                 <a type="button" class="btn btn-outline-info" href="/activities/{{$activity->id}}">
                                                     <i class="bi bi-clipboard-check"></i>
                                                 </a>
+                                                <a type="button" class="btn btn-outline-warning " href="/activities/{{$activity->id}}/edit">Edit</a>
                                             </span>
                                         </li>
                                     @endforeach
@@ -43,7 +44,10 @@
                             @endif
                         </div>
                         <div class="card-body my-3">
-                            <a type="button" class="btn btn-outline-dark d-block" href="{{route('projects')}}">Back</a>
+                        <a type="button" class="btn btn-outline-warning d-block" href="/projects/{{$project->id}}/edit">Edit Project</a>
+                        </div>
+                        <div class="card-body my-3">
+                            <a type="button" class="btn btn-outline-dark d-block" href="{{route('projects')}}">Back to all project</a>
                         </div>
                         <div class="card-footer">
                             <p class="card-text"><small class="text-body-secondary">Last updated {{$project->updated_at}}</small></p>

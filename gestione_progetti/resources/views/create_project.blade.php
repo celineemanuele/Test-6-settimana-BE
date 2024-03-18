@@ -25,7 +25,7 @@
                             <option value="Back-End">Back-End</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add project</button>
+                    <button type="submit" class="btn btn-primary text-dark">Add project</button>
                 </form>
                 </div>
             </div>

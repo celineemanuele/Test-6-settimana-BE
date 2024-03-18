@@ -11,7 +11,7 @@ class Activity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'title',
         'description',
         'priority',
         'start_date',
