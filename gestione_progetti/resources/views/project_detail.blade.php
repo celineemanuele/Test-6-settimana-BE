@@ -21,6 +21,9 @@
                             <p class="card-text"><strong>Created: </strong>{{$project->created_at}}</p>
                         </div>
                         <div class="card-body my-3">
+                        <a  type="button" href="/activities/create?id={{$project->id}}" class="btn btn-dark text-dark">Add Activity</a>
+                        </div>
+                        <div class="card-body my-3">
                             <h2 class="card-title">{{ __('Activities') }}</h2>
                             @if(count($project->activities) > 0)
                                 <ul class="list-group list-group-flush">

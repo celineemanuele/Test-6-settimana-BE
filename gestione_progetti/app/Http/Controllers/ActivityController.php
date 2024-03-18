@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Http\Requests\StoreActivityRequest;
 use App\Http\Requests\UpdateActivityRequest;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
@@ -20,9 +21,9 @@ class ActivityController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(StoreActivityRequest $request)
     {
-        return view('newactivity');
+        return view('newactivity', ['project_id'=> $request->id]);
     }
 
     /**
@@ -30,7 +31,12 @@ class ActivityController extends Controller
      */
     public function store(StoreActivityRequest $request)
     {
-        return'methodo --store';
+        //dd($request);
+        $data = $request ->only(['title','description','priority','start_date','end_date','project_id']);
+        $data['created_at'] = Carbon::now();
+
+        Activity::create($data);
+        return redirect()->back();
     }
 
     /**
